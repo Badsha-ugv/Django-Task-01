@@ -17,7 +17,7 @@
             <div class="form-group">
                 <label for="">Question</label>
                 <input type="text" name="question" class="form-control">
-                <input type="text" value="{{ request.user.id }}" name="ask_by" class="form-control" > 
+                <input type="text" value="{{ request.user.id }}" name="ask_by" class="form-control" hidden > 
             </div>
             <button type="submit" class="btn btn-primary" >Submit</button>
         </form>
@@ -33,6 +33,7 @@
         <li class="list-group-item">
           {{i.id}} >> {{i.question_text}}
           <a href="{% url 'reply' i.id %}" class="btn btn-success btn-sm ">reply</a>
+          <a href="{% url 'view_reply' i.id %}" class="btn btn-info btn-sm ">view all reply </a>
         </li>
         {% endfor %} 
         

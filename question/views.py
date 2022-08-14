@@ -54,7 +54,12 @@ def reply(request,id):
     return render(request,'question/reply.html',context)   
 
 
-
+def view_reply(request,id):
+    question = Question.objects.get(id=id)
+    print(question)  
+    all_answer = Answer.objects.filter(answer_of=question.id).order_by('-id')
+    print(all_answer)
+    return render(request, 'question/view_reply.html',{'ans':all_answer,'question':question})  
   
 
  

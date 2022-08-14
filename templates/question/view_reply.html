@@ -1,0 +1,33 @@
+{% extends 'base.html' %} {% block content %} {% include 'nav.html' %}
+
+<div class="container">
+  <div class="card mt-3">
+    <div class="card-title p-2">
+      View All Answer of
+      <strong>
+        {{question.question_text}}
+        <hr />
+      </strong>
+    </div>
+    <div class="card-body">
+      {% for i in ans %}
+      <span><strong>Answer : </strong>{{ i.answer_text }} </span>
+      <p>
+        by @{{question.asked_by}}
+      </p>
+      
+      {% if i.media %}
+      <img
+        src="\{{i.media}}"
+        alt=""
+        class=""
+        style="width: 300px; height: 300px;"
+      />
+      {% endif %}
+      <hr />
+      {% endfor %}
+    </div>
+  </div>
+</div>
+
+{% endblock %}

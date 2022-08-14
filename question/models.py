@@ -17,4 +17,9 @@ class Answer(models.Model):
     answer_text = models.TextField(blank=True)
     media = models.ImageField(upload_to='media/image',null=True,blank=True) 
     def __str__(self):
-        return self.answer_text[:15] 
+        return self.answer_of.question_text
+
+class TestFile(models.Model):
+    
+    file = models.ImageField(upload_to='media/image',null=True,blank=True) 
+
